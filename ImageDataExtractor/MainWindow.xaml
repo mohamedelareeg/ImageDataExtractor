@@ -1,9 +1,9 @@
-﻿<Window x:Class="CePOC.MainWindow"
+﻿<Window x:Class="ImageDataExtractor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CePOC"
+        xmlns:local="clr-namespace:ImageDataExtractor"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:Icon="http://schemas.fontawesome.io/icons/"
         xmlns:controls="clr-namespace:Components;assembly=Components"
@@ -189,18 +189,18 @@
                 <RowDefinition Height="60" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <controls:WindowHeader Grid.Row="0" HeaderTitle="الادلة الجنائية" />
+            <controls:WindowHeader Grid.Row="0" HeaderTitle="ادارة المستندات" />
             <Border Grid.Row="1" BorderThickness="2" Margin="0,10,0,0" BorderBrush="LightSlateGray">
                 <Grid Margin="20,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Button Command="{Binding LoadImagesCommand}" Style="{StaticResource CustomButtonStyle}"  Background="Transparent" BorderBrush="{StaticResource PrimaryBlueColor}">
-                            رفع المستندات
+                            ادراج صور
                         </Button>
                       
                     </StackPanel>
                     <TextBlock x:Name="breadcrumbsTextBlock" HorizontalAlignment="Left" MaxWidth="600" TextTrimming="WordEllipsis" FontSize="20" VerticalAlignment="Center" Margin="10,0,0,0" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                        <TextBlock Text="اختر الوثيقة :" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14"/>
+                        <TextBlock Text="اختر نوع المستند :" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14"/>
 
                         <ComboBox x:Name="formComboBox" ItemsSource="{Binding Forms}" DisplayMemberPath="Name" SelectedIndex="{Binding SelectedFormIndex}" 
           SelectedItem="{Binding SelectedForm}" Margin="5" Width="300">
@@ -227,15 +227,17 @@
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" BorderBrush="#888" BorderThickness="0,0,0,0">
                     <ListBox x:Name="imageListBox" ItemsSource="{Binding ImageList}" SelectedIndex="{Binding SelectedImageIndex}">
-                        <!-- Define how each item should be displayed in the ListBox -->
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Height="100" Margin="30" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Image Source="{Binding}" Stretch="Uniform" />
+                                    <Image Source="{Binding}" Stretch="UniformToFill" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
+
+
+
 
 
 
